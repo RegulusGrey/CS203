@@ -288,6 +288,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(766, 812);
             panel1.TabIndex = 14;
+            panel1.Paint += panel1_Paint;
             // 
             // Form1
             // 

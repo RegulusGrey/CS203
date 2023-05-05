@@ -2,6 +2,9 @@ namespace nodecs
 {
     public partial class Form1 : Form
     {
+
+        private bool createNodes = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -14,7 +17,7 @@ namespace nodecs
 
         private void createNodeBtn_Click(object sender, EventArgs e)
         {
-
+            createNodes = !createNodes; // toggle the value
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,8 +34,6 @@ namespace nodecs
         {
 
         }
-
-
 
         private void srcBtn_Click(object sender, EventArgs e)
         {
@@ -53,5 +54,11 @@ namespace nodecs
         private void groupBox1_Enter_1(object sender, EventArgs e)
         {
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
     }
 }
