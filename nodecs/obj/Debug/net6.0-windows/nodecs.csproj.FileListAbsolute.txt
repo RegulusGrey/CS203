@@ -1,0 +1,17 @@
+C:\Users\Ethan\source\repos\nodecs\bin\Debug\net6.0-windows\nodecs.exe
+C:\Users\Ethan\source\repos\nodecs\bin\Debug\net6.0-windows\nodecs.deps.json
+C:\Users\Ethan\source\repos\nodecs\bin\Debug\net6.0-windows\nodecs.runtimeconfig.json
+C:\Users\Ethan\source\repos\nodecs\bin\Debug\net6.0-windows\nodecs.dll
+C:\Users\Ethan\source\repos\nodecs\bin\Debug\net6.0-windows\nodecs.pdb
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.csproj.AssemblyReference.cache
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.Form1.resources
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.csproj.GenerateResource.cache
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.AssemblyInfoInputs.cache
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.AssemblyInfo.cs
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.csproj.CoreCompileInputs.cache
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.dll
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\refint\nodecs.dll
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.pdb
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\nodecs.genruntimeconfig.cache
+C:\Users\Ethan\source\repos\nodecs\obj\Debug\net6.0-windows\ref\nodecs.dll
