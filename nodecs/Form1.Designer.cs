@@ -117,6 +117,7 @@
             // 
             createNodeBtn.BackColor = SystemColors.GradientInactiveCaption;
             createNodeBtn.FlatStyle = FlatStyle.Popup;
+            createNodeBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             createNodeBtn.Location = new Point(67, 37);
             createNodeBtn.Name = "createNodeBtn";
             createNodeBtn.Size = new Size(301, 40);
@@ -143,6 +144,7 @@
             // 
             adjacentNodeBtn.BackColor = SystemColors.GradientInactiveCaption;
             adjacentNodeBtn.FlatStyle = FlatStyle.Popup;
+            adjacentNodeBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             adjacentNodeBtn.Location = new Point(33, 114);
             adjacentNodeBtn.Name = "adjacentNodeBtn";
             adjacentNodeBtn.Size = new Size(300, 40);
@@ -231,6 +233,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(textBox2);
+            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(35, 98);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(365, 178);
@@ -247,6 +250,7 @@
             groupBox2.Controls.Add(destinationBtn);
             groupBox2.Controls.Add(textBox4);
             groupBox2.Controls.Add(srcBtn);
+            groupBox2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(35, 599);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(365, 196);
@@ -259,7 +263,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(18, 135);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(76, 20);
             label3.TabIndex = 9;
             label3.Text = "Traversal:";
             // 
