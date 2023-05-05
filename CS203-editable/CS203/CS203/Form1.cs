@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
 using System.Threading;
+using System.Windows.Forms;
 namespace CS203
 {
     public partial class Form1 : Form
@@ -31,24 +25,107 @@ namespace CS203
             btnAdjacentNodes.FlatAppearance.BorderSize = 0;
         }
         //method to set
-        public void setClear() 
+        public void setClear()
         {
             // set the initialization of variables to clear
             graph = picGraph.CreateGraphics();
-            stopcreate = false;
+            stopcreate = true;
             matrix = new int[50, 50];
             vertices = new string[50];
-            countnodes = 0;            
+            countnodes = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+        private void btnCreateNodes_Click(object sender, EventArgs e)
+        {
+            stopcreate = false;
+        }
+
+        private bool isDrawingLine = false;
+        private int edge1 = -1; // initialize to an invalid index
+        private int edge2 = -1; // initialize to an invalid index
+
+        /*private void btnAdjacentNodes_Click(object sender, EventArgs e)
+        {
+            picGraph.Refresh(); // Clear the existing graphics
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.RowIndex == edge1 && cell.ColumnIndex == edge2) // If this is the edge we just added
+                    {
+                        if (matrix[edge1, edge2] > 0) // If they are adjacent
+                        {
+                            // Get the coordinates of the nodes
+                            string[] c1 = vertices[edge1].Split('-');
+                            string[] c2 = vertices[edge2].Split('-');
+                            int x1 = Convert.ToInt32(c1[0]) + 35 / 2;
+                            int y1 = Convert.ToInt32(c1[1]) + 35 / 2;
+                            int x2 = Convert.ToInt32(c2[0]) + 35 / 2;
+                            int y2 = Convert.ToInt32(c2[1]) + 35 / 2;
+
+                            // Draw the line
+                            graph.DrawLine(new Pen(Brushes.Teal, 2), x1, y1, x2, y2);
+
+                            // Calculate the position to display the distance
+                            double distance = Convert.ToInt32(Math.Round((double)matrix[edge1, edge2], 2));
+                            int a = (x1 + x2) / 2;
+                            int b = (y1 + y2) / 2 - 5;
+
+                            // Display the distance
+                            graph.DrawString(distance.ToString(), new Font("Arial", 10), Brushes.MidnightBlue, a, b);
+                        }
+                    }
+                }
+            }
+
+        }
+        private void picGraph_MouseClick(object sender, MouseEventArgs e)
+        {
+            //when you click the mouse at the letside
+            if (e.Button == MouseButtons.Left && stopcreate != true)
+            {
+                Rectangle rect = new Rectangle((e.X) - (35 / 2), (e.Y) - (35 / 2), 35, 35);
+
+                //define the locaiton of x and y coordinate and the size of the nodes that created
+                graph.FillEllipse(Brushes.PaleVioletRed, rect);
+
+                graph.DrawString(countnodes.ToString(), new Font("Arial Black", 10), Brushes.White, ((e.X) - (35 / 2)) + 10, ((e.Y) - (35 / 2)) + 11);
+                //the number that will appear base in the counter if the nodes that been
+
+                vertices[countnodes] = ((e.X) - (35 / 2)) + "-" + ((e.Y) - (35 / 2));
+
+                //the maker of color of the nodes
+                countnodes++;
+
+                //increment another node to draw in the datagridview
+                dataGridView1.Columns.Add("", (countnodes - 1).ToString());
+                dataGridView1.AutoResizeColumns();
+
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[countnodes - 1].HeaderCell.Value = (countnodes - 1).ToString();
+                dataGridView1.AutoResizeRows();
+
+                //Filling every cell to 0
+                setAdjacentMatrixToZero(countnodes);
+                
+
+
+            }
+            else
+            {
+                stopcreate = false;
+            }
+
+        }*/
 
         private void btnAdjacentNodes_Click(object sender, EventArgs e)
         {
-            if (stopcreate == true) 
+            
+            if (stopcreate == true)
             {
                 //set or define the adjacent of two nodes
                 int edge1 = Convert.ToInt32(txtEdge1.Text);
@@ -66,41 +143,38 @@ namespace CS203
                 int ycoordinate2 = Convert.ToInt32(c2[1]);//coordinate of edge2
 
                 //after retrieving the x and y coordinate, we will draw a line
-                graph.DrawLine(new Pen(Brushes.Green, 2), (float)(xcoordinate1 + (35/2)), (float)(ycoordinate1 + (35/2)), (float)(xcoordinate2 + (35/2)), (float)(ycoordinate2 + (35/2)));
+                graph.DrawLine(new Pen(Brushes.Teal, 2), (float)(xcoordinate1 + (35 / 2)), (float)(ycoordinate1 + (35 / 2)), (float)(xcoordinate2 + (35 / 2)), (float)(ycoordinate2 + (35 / 2)));
 
                 //calculate distance
                 double x = (double)(xcoordinate2 - xcoordinate1);
                 double y = (double)(ycoordinate2 - ycoordinate1);
                 double d = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
                 int a = (int)(xcoordinate1 + xcoordinate2) / 2;
-                int b = (int)((ycoordinate1 + ycoordinate2) / 2)-5;
-                graph.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 10), Brushes.Maroon, a, b);
+                int b = (int)((ycoordinate1 + ycoordinate2) / 2) - 5;
+                graph.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 10), Brushes.MidnightBlue, a, b);
 
                 //adjacent matrix(undirected graph - no arrows)
                 matrix[edge1, edge2] = Convert.ToInt32(d); // the same distance
                 matrix[edge2, edge1] = Convert.ToInt32(d);
 
                 //if it is adjacent, display 1 otherwise 0
-                setAdjacentMatrix(int.Parse(txtEdge1.Text),int.Parse(txtEdge2.Text));
-                
-                
-            }                        
+                setAdjacentMatrix(int.Parse(txtEdge1.Text), int.Parse(txtEdge2.Text));
+
+
+            }
         }
 
-        private void btnCreateNodes_Click(object sender, EventArgs e)
-        {
-            stopcreate = false;
-        }
+
 
         private void picGraph_MouseClick(object sender, MouseEventArgs e)
         {
             //when you click the mouse at the letside
-            if (e.Button == MouseButtons.Left && stopcreate != true)
+            if (e.Button == MouseButtons.Left && stopcreate != false)
             {
-                Rectangle rect = new Rectangle((e.X)-(35/2), (e.Y)-(35/2), 35, 35);
+                Rectangle rect = new Rectangle((e.X) - (35 / 2), (e.Y) - (35 / 2), 35, 35);
 
                 //define the locaiton of x and y coordinate and the size of the nodes that created
-                graph.FillEllipse(Brushes.Blue, rect);
+                graph.FillEllipse(Brushes.PaleVioletRed, rect);
 
                 graph.DrawString(countnodes.ToString(), new Font("Arial Black", 10), Brushes.White, ((e.X) - (35 / 2)) + 10, ((e.Y) - (35 / 2)) + 11);
                 //the number that will appear base in the counter if the nodes that been
@@ -123,20 +197,22 @@ namespace CS203
 
 
             }
-            else 
+            else
             {
                 stopcreate = true;
             }
 
         }
-
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setClear();
             picGraph.Image = null;
+            // Clear dataGridView1
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
             //Application.Restart();
         }
-        public void setAdjacentMatrix(int r, int c) 
+        public void setAdjacentMatrix(int r, int c)
         {
             //Overwrite the specific cell that are adjacent
             dataGridView1.Rows[r].Cells[c].Value = "1";
@@ -172,7 +248,7 @@ namespace CS203
         }*/
 
 
-        public void setAdjacentMatrixToZero(int count) 
+        public void setAdjacentMatrixToZero(int count)
         {
             for (int i = 0; i < count; i++)
             {
@@ -180,12 +256,12 @@ namespace CS203
                 dataGridView1.Rows[i].Cells[count - 1].Value = "0";
             }
         }
-        public void bfsTraversal() 
+        public void bfsTraversal()
         {
             int source = Convert.ToInt32(txtSource.Text); //root
             int destination = Convert.ToInt32(txtDestination.Text);
-            colornodes(source, Brushes.SeaGreen);
-            colornodes(destination, Brushes.SlateBlue);
+            colornodes(source, Brushes.SlateBlue);
+            colornodes(destination, Brushes.DarkSlateBlue);
 
             Queue<int> b = new Queue<int>(); //create queue
             int[] visited = new int[countnodes]; //create visited nodes
@@ -198,28 +274,74 @@ namespace CS203
             {
                 x = Convert.ToInt32(b.Dequeue().ToString());
                 Thread.Sleep(500);
-                colornodes(x, Brushes.Purple);
+                colornodes(x, Brushes.Navy);
 
                 //loop for your immediated neighbors of x
-                for (int i = 0; i < countnodes; i++) 
+                for (int i = 0; i < countnodes; i++)
                 {
                     Thread.Sleep(150);
                     if (matrix[x, i] != 0 && visited[i] != 1)
                         //if matrix is not equal to zero and not visited yet
                         if (!b.Contains(i))
-                        { 
-                        b.Enqueue(i); //insert it the queue
-                        visited[x] = 1; // mark x as visited
-                        
+                        {
+                            b.Enqueue(i); //insert it the queue
+                            visited[x] = 1; // mark x as visited
+
                         }
                 }
                 lblpath.Text += "" + x + "";
-                if (x == destination) {
+                if (x == destination)
+                {
                     break;
                 }
             }
 
         }
+
+
+
+        public void dfsTraversal()
+        {
+            int source = Convert.ToInt32(txtSource.Text); //root
+            int destination = Convert.ToInt32(txtDestination.Text);
+            colornodes(source, Brushes.SlateBlue);
+            colornodes(destination, Brushes.DarkSlateBlue);
+
+            Stack<int> s = new Stack<int>(); //create stack
+            int[] visited = new int[countnodes]; //create visited nodes
+            visited[source] = 1; //mark root as visited
+            s.Push(source); //insert root node to the stack
+            int x = source;
+            Thread.Sleep(200);
+
+            while (s.Count > 0) //loop if not empty
+            {
+                x = Convert.ToInt32(s.Pop().ToString());
+                Thread.Sleep(500);
+                colornodes(x, Brushes.Navy);
+
+                //loop for your immediated neighbors of x
+                for (int i = 0; i < countnodes; i++)
+                {
+                    Thread.Sleep(150);
+                    if (matrix[x, i] != 0 && visited[i] != 1)
+                        //if matrix is not equal to zero and not visited yet
+                        if (!s.Contains(i))
+                        {
+                            s.Push(i); //insert it the stack
+                            visited[x] = 1; // mark x as visited
+
+                        }
+                }
+                lblpath1.Text += "" + x + "";
+                if (x == destination)
+                {
+                    break;
+                }
+            }
+
+        }
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -246,6 +368,8 @@ namespace CS203
             bfsTraversal();
         }
 
+
+
         private void txtSource_TextChanged(object sender, EventArgs e)
         {
 
@@ -253,7 +377,7 @@ namespace CS203
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
 
@@ -263,6 +387,21 @@ namespace CS203
         }
 
         private void txtEdge1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void dFSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dfsTraversal();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

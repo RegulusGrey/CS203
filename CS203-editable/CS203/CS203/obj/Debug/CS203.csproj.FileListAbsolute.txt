@@ -64,3 +64,14 @@ C:\Users\Ethan\Downloads\CS203-editable\CS203\CS203\obj\Debug\CS203.csproj.Gener
 C:\Users\Ethan\Downloads\CS203-editable\CS203\CS203\obj\Debug\CS203.csproj.CoreCompileInputs.cache
 C:\Users\Ethan\Downloads\CS203-editable\CS203\CS203\obj\Debug\CS203.exe
 C:\Users\Ethan\Downloads\CS203-editable\CS203\CS203\obj\Debug\CS203.pdb
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\bin\Debug\CS203.exe.config
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\bin\Debug\CS203.exe
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\bin\Debug\CS203.pdb
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.csproj.AssemblyReference.cache
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.csproj.SuggestedBindingRedirects.cache
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.Form1.resources
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.Properties.Resources.resources
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.csproj.GenerateResource.cache
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.csproj.CoreCompileInputs.cache
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.exe
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.pdb
