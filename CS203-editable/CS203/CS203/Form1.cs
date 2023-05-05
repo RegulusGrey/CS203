@@ -143,7 +143,7 @@ namespace CS203
                 int ycoordinate2 = Convert.ToInt32(c2[1]);//coordinate of edge2
 
                 //after retrieving the x and y coordinate, we will draw a line
-                graph.DrawLine(new Pen(Brushes.Teal, 2), (float)(xcoordinate1 + (35 / 2)), (float)(ycoordinate1 + (35 / 2)), (float)(xcoordinate2 + (35 / 2)), (float)(ycoordinate2 + (35 / 2)));
+                graph.DrawLine(new Pen(Brushes.PowderBlue, 2), (float)(xcoordinate1 + (35 / 2)), (float)(ycoordinate1 + (35 / 2)), (float)(xcoordinate2 + (35 / 2)), (float)(ycoordinate2 + (35 / 2)));
 
                 //calculate distance
                 double x = (double)(xcoordinate2 - xcoordinate1);
@@ -151,7 +151,7 @@ namespace CS203
                 double d = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
                 int a = (int)(xcoordinate1 + xcoordinate2) / 2;
                 int b = (int)((ycoordinate1 + ycoordinate2) / 2) - 5;
-                graph.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 10), Brushes.MidnightBlue, a, b);
+                graph.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 10), Brushes.DarkSlateGray, a, b);
 
                 //adjacent matrix(undirected graph - no arrows)
                 matrix[edge1, edge2] = Convert.ToInt32(d); // the same distance
@@ -260,7 +260,7 @@ namespace CS203
         {
             int source = Convert.ToInt32(txtSource.Text); //root
             int destination = Convert.ToInt32(txtDestination.Text);
-            colornodes(source, Brushes.SlateBlue);
+            colornodes(source, Brushes.MediumSlateBlue);
             colornodes(destination, Brushes.DarkSlateBlue);
 
             Queue<int> b = new Queue<int>(); //create queue
@@ -304,7 +304,7 @@ namespace CS203
         {
             int source = Convert.ToInt32(txtSource.Text); //root
             int destination = Convert.ToInt32(txtDestination.Text);
-            colornodes(source, Brushes.SlateBlue);
+            colornodes(source, Brushes.MediumSlateBlue);
             colornodes(destination, Brushes.DarkSlateBlue);
 
             Stack<int> s = new Stack<int>(); //create stack
