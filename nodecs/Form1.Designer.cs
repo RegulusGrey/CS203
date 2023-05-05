@@ -51,6 +51,7 @@
             groupBox2 = new GroupBox();
             label3 = new Label();
             groupBox3 = new GroupBox();
+            panel1 = new Panel();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -154,7 +155,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(307, 47);
+            textBox3.Location = new Point(306, 62);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(43, 27);
             textBox3.TabIndex = 8;
@@ -164,7 +165,7 @@
             // 
             destinationBtn.BackColor = SystemColors.GradientInactiveCaption;
             destinationBtn.FlatStyle = FlatStyle.Popup;
-            destinationBtn.Location = new Point(208, 30);
+            destinationBtn.Location = new Point(207, 45);
             destinationBtn.Name = "destinationBtn";
             destinationBtn.Size = new Size(93, 61);
             destinationBtn.TabIndex = 7;
@@ -174,7 +175,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(117, 47);
+            textBox4.Location = new Point(116, 62);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(43, 27);
             textBox4.TabIndex = 6;
@@ -184,7 +185,7 @@
             // 
             srcBtn.BackColor = SystemColors.GradientInactiveCaption;
             srcBtn.FlatStyle = FlatStyle.Popup;
-            srcBtn.Location = new Point(18, 30);
+            srcBtn.Location = new Point(17, 45);
             srcBtn.Name = "srcBtn";
             srcBtn.Size = new Size(93, 61);
             srcBtn.TabIndex = 5;
@@ -280,12 +281,21 @@
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
             // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.InactiveCaption;
+            panel1.Location = new Point(19, 50);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(766, 812);
+            panel1.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1244, 874);
+            Controls.Add(panel1);
             Controls.Add(groupBox3);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -329,5 +339,6 @@
         private GroupBox groupBox2;
         private Label label3;
         private GroupBox groupBox3;
+        private Panel panel1;
     }
 }
