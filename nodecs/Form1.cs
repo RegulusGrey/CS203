@@ -3,8 +3,6 @@ namespace nodecs
     public partial class Form1 : Form
     {
 
-        private bool createNodes = false;
-
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +15,6 @@ namespace nodecs
 
         private void createNodeBtn_Click(object sender, EventArgs e)
         {
-            createNodes = !createNodes; // toggle the value
         }
 
         private void label1_Click(object sender, EventArgs e)
