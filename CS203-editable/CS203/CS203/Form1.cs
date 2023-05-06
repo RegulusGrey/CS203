@@ -35,10 +35,6 @@ namespace CS203
             countnodes = 0;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
         private void btnCreateNodes_Click(object sender, EventArgs e)
         {
             stopcreate = false;
@@ -47,80 +43,6 @@ namespace CS203
         private bool isDrawingLine = false;
         private int edge1 = -1; // initialize to an invalid index
         private int edge2 = -1; // initialize to an invalid index
-
-        /*private void btnAdjacentNodes_Click(object sender, EventArgs e)
-        {
-            picGraph.Refresh(); // Clear the existing graphics
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.RowIndex == edge1 && cell.ColumnIndex == edge2) // If this is the edge we just added
-                    {
-                        if (matrix[edge1, edge2] > 0) // If they are adjacent
-                        {
-                            // Get the coordinates of the nodes
-                            string[] c1 = vertices[edge1].Split('-');
-                            string[] c2 = vertices[edge2].Split('-');
-                            int x1 = Convert.ToInt32(c1[0]) + 35 / 2;
-                            int y1 = Convert.ToInt32(c1[1]) + 35 / 2;
-                            int x2 = Convert.ToInt32(c2[0]) + 35 / 2;
-                            int y2 = Convert.ToInt32(c2[1]) + 35 / 2;
-
-                            // Draw the line
-                            graph.DrawLine(new Pen(Brushes.Teal, 2), x1, y1, x2, y2);
-
-                            // Calculate the position to display the distance
-                            double distance = Convert.ToInt32(Math.Round((double)matrix[edge1, edge2], 2));
-                            int a = (x1 + x2) / 2;
-                            int b = (y1 + y2) / 2 - 5;
-
-                            // Display the distance
-                            graph.DrawString(distance.ToString(), new Font("Arial", 10), Brushes.MidnightBlue, a, b);
-                        }
-                    }
-                }
-            }
-
-        }
-        private void picGraph_MouseClick(object sender, MouseEventArgs e)
-        {
-            //when you click the mouse at the letside
-            if (e.Button == MouseButtons.Left && stopcreate != true)
-            {
-                Rectangle rect = new Rectangle((e.X) - (35 / 2), (e.Y) - (35 / 2), 35, 35);
-
-                //define the locaiton of x and y coordinate and the size of the nodes that created
-                graph.FillEllipse(Brushes.PaleVioletRed, rect);
-
-                graph.DrawString(countnodes.ToString(), new Font("Arial Black", 10), Brushes.White, ((e.X) - (35 / 2)) + 10, ((e.Y) - (35 / 2)) + 11);
-                //the number that will appear base in the counter if the nodes that been
-
-                vertices[countnodes] = ((e.X) - (35 / 2)) + "-" + ((e.Y) - (35 / 2));
-
-                //the maker of color of the nodes
-                countnodes++;
-
-                //increment another node to draw in the datagridview
-                dataGridView1.Columns.Add("", (countnodes - 1).ToString());
-                dataGridView1.AutoResizeColumns();
-
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[countnodes - 1].HeaderCell.Value = (countnodes - 1).ToString();
-                dataGridView1.AutoResizeRows();
-
-                //Filling every cell to 0
-                setAdjacentMatrixToZero(countnodes);
-                
-
-
-            }
-            else
-            {
-                stopcreate = false;
-            }
-
-        }*/
 
         private void btnAdjacentNodes_Click(object sender, EventArgs e)
         {
@@ -342,53 +264,15 @@ namespace CS203
 
         }
 
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {   
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightPink;
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightPink;
         }
 
         private void bFSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bfsTraversal();
-        }
-
-
-
-        private void txtSource_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void txtDestination_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEdge1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -399,11 +283,6 @@ namespace CS203
         private void dFSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dfsTraversal();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

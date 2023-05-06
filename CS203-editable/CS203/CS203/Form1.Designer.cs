@@ -47,13 +47,13 @@
             this.dFSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblpath1 = new System.Windows.Forms.Label();
             this.lblpath = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.endbtn = new System.Windows.Forms.Button();
+            this.startbtn = new System.Windows.Forms.Button();
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.txtSource = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblpath1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -101,7 +101,6 @@
             this.txtEdge1.Name = "txtEdge1";
             this.txtEdge1.Size = new System.Drawing.Size(85, 24);
             this.txtEdge1.TabIndex = 2;
-            this.txtEdge1.TextChanged += new System.EventHandler(this.txtEdge1_TextChanged);
             // 
             // txtEdge2
             // 
@@ -130,7 +129,6 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Graph Details";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label2
             // 
@@ -151,7 +149,6 @@
             this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Edge 1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // picGraph
             // 
@@ -248,15 +245,15 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(413, 307);
             this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.PaleVioletRed;
             this.groupBox2.Controls.Add(this.lblpath1);
             this.groupBox2.Controls.Add(this.lblpath);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.endbtn);
+            this.groupBox2.Controls.Add(this.startbtn);
             this.groupBox2.Controls.Add(this.txtDestination);
             this.groupBox2.Controls.Add(this.txtSource);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -270,6 +267,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Traversal";
             // 
+            // lblpath1
+            // 
+            this.lblpath1.AutoSize = true;
+            this.lblpath1.Font = new System.Drawing.Font("Century Gothic", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpath1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblpath1.Location = new System.Drawing.Point(219, 126);
+            this.lblpath1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblpath1.Name = "lblpath1";
+            this.lblpath1.Size = new System.Drawing.Size(113, 17);
+            this.lblpath1.TabIndex = 16;
+            this.lblpath1.Text = "DFS Traversal:   ";
+            // 
             // lblpath
             // 
             this.lblpath.AutoSize = true;
@@ -281,36 +290,34 @@
             this.lblpath.Size = new System.Drawing.Size(111, 17);
             this.lblpath.TabIndex = 15;
             this.lblpath.Text = "BFS Traversal:   ";
-            this.lblpath.Click += new System.EventHandler(this.label5_Click);
             // 
-            // button2
+            // endbtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Plum;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button2.Location = new System.Drawing.Point(222, 25);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 82);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "End";
-            this.button2.UseVisualStyleBackColor = false;
+            this.endbtn.BackColor = System.Drawing.Color.Plum;
+            this.endbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.endbtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endbtn.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.endbtn.Location = new System.Drawing.Point(222, 25);
+            this.endbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.endbtn.Name = "endbtn";
+            this.endbtn.Size = new System.Drawing.Size(104, 82);
+            this.endbtn.TabIndex = 14;
+            this.endbtn.Text = "End";
+            this.endbtn.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // startbtn
             // 
-            this.button1.BackColor = System.Drawing.Color.Plum;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button1.Location = new System.Drawing.Point(22, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 83);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.startbtn.BackColor = System.Drawing.Color.Plum;
+            this.startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.startbtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startbtn.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.startbtn.Location = new System.Drawing.Point(22, 25);
+            this.startbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.startbtn.Name = "startbtn";
+            this.startbtn.Size = new System.Drawing.Size(104, 83);
+            this.startbtn.TabIndex = 13;
+            this.startbtn.Text = "Start";
+            this.startbtn.UseVisualStyleBackColor = false;
             // 
             // txtDestination
             // 
@@ -321,7 +328,6 @@
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(54, 24);
             this.txtDestination.TabIndex = 12;
-            this.txtDestination.TextChanged += new System.EventHandler(this.txtDestination_TextChanged);
             // 
             // txtSource
             // 
@@ -333,7 +339,6 @@
             this.txtSource.Name = "txtSource";
             this.txtSource.Size = new System.Drawing.Size(54, 25);
             this.txtSource.TabIndex = 11;
-            this.txtSource.TextChanged += new System.EventHandler(this.txtSource_TextChanged);
             // 
             // groupBox3
             // 
@@ -349,18 +354,6 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
-            // lblpath1
-            // 
-            this.lblpath1.AutoSize = true;
-            this.lblpath1.Font = new System.Drawing.Font("Century Gothic", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpath1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblpath1.Location = new System.Drawing.Point(219, 126);
-            this.lblpath1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblpath1.Name = "lblpath1";
-            this.lblpath1.Size = new System.Drawing.Size(113, 17);
-            this.lblpath1.TabIndex = 16;
-            this.lblpath1.Text = "DFS Traversal:   ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -374,7 +367,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Breadth-First Search";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).EndInit();
@@ -407,8 +399,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtDestination;
         private System.Windows.Forms.TextBox txtSource;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button endbtn;
+        private System.Windows.Forms.Button startbtn;
         private System.Windows.Forms.Label lblpath;
         private System.Windows.Forms.ToolStripMenuItem algorithimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bFSToolStripMenuItem;
