@@ -38,8 +38,6 @@
             this.picGraph = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.algorithimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +45,8 @@
             this.dFSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblpath4 = new System.Windows.Forms.Label();
+            this.lblpath3 = new System.Windows.Forms.Label();
             this.lblpath1 = new System.Windows.Forms.Label();
             this.lblpath = new System.Windows.Forms.Label();
             this.endbtn = new System.Windows.Forms.Button();
@@ -178,31 +178,17 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
             this.closeToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
-            this.openToolStripMenuItem.Text = "&Open";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
-            this.saveToolStripMenuItem.Text = "&Save";
-            // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
-            this.closeToolStripMenuItem.Text = "&Close";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.closeToolStripMenuItem.Text = "Restart";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
@@ -250,6 +236,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.groupBox2.Controls.Add(this.lblpath4);
+            this.groupBox2.Controls.Add(this.lblpath3);
             this.groupBox2.Controls.Add(this.lblpath1);
             this.groupBox2.Controls.Add(this.lblpath);
             this.groupBox2.Controls.Add(this.endbtn);
@@ -266,6 +254,28 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Traversal";
+            // 
+            // lblpath4
+            // 
+            this.lblpath4.AutoSize = true;
+            this.lblpath4.Font = new System.Drawing.Font("Century Gothic", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblpath4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblpath4.Location = new System.Drawing.Point(318, 126);
+            this.lblpath4.Name = "lblpath4";
+            this.lblpath4.Size = new System.Drawing.Size(63, 17);
+            this.lblpath4.TabIndex = 18;
+            this.lblpath4.Text = "lblpath4";
+            // 
+            // lblpath3
+            // 
+            this.lblpath3.AutoSize = true;
+            this.lblpath3.Font = new System.Drawing.Font("Century Gothic", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblpath3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblpath3.Location = new System.Drawing.Point(116, 126);
+            this.lblpath3.Name = "lblpath3";
+            this.lblpath3.Size = new System.Drawing.Size(63, 17);
+            this.lblpath3.TabIndex = 17;
+            this.lblpath3.Text = "lblpath3";
             // 
             // lblpath1
             // 
@@ -391,8 +401,6 @@
         private System.Windows.Forms.PictureBox picGraph;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -409,6 +417,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblpath1;
+        private System.Windows.Forms.Label lblpath4;
+        private System.Windows.Forms.Label lblpath3;
     }
 }
 

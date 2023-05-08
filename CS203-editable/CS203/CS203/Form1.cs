@@ -33,6 +33,13 @@ namespace CS203
             matrix = new int[50, 50];
             vertices = new string[50];
             countnodes = 0;
+            lblpath3.Text = "";
+            lblpath4.Text = "";
+            txtEdge1.Text = "";
+            txtEdge2.Text = "";
+            txtSource.Text = "";
+            txtDestination.Text = "";
+
         }
 
         private void btnCreateNodes_Click(object sender, EventArgs e)
@@ -211,7 +218,7 @@ namespace CS203
 
                         }
                 }
-                lblpath.Text += "" + x + "";
+                lblpath3.Text += "" + x + "";
                 if (x == destination)
                 {
                     break;
@@ -255,7 +262,7 @@ namespace CS203
 
                         }
                 }
-                lblpath1.Text += "" + x + "";
+                lblpath4.Text += "" + x + "";
                 if (x == destination)
                 {
                     break;
