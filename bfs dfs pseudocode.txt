@@ -1,0 +1,39 @@
+1. Get the source and destination nodes from the txtSource and txtDestination text boxes, respectively.
+2. Create a new queue called b.
+3. Create a new array called visited to keep track of visited nodes.
+4. Mark the source node as visited by setting visited[source] = 1.
+5. Enqueue the source node to the queue b.
+6. Initialize a variable x to the value of the source node.
+7. Wait for 200 milliseconds.
+8. While the queue b is not empty:
+    a. Dequeue the first node from the queue and set x to its value.
+    b. Wait for 500 milliseconds.
+    c. Color the current node x with Navy using the colornodes function.
+    d. For each neighbor i of x:
+        i. Wait for 150 milliseconds.
+        ii. If the edge between nodes x and i exists (matrix[x, i] != 0) and i has not been visited (visited[i] != 1):
+            1. Enqueue i to the queue b.
+            2. Mark x as visited by setting visited[x] = 1.
+    e. Append the value of x to the lblpath3 text box.
+    f. If x is equal to the destination node, break the loop.
+
+
+
+------------------------------------
+
+
+1. Initialize a stack and an array to keep track of visited nodes.
+2. Push the source node onto the stack and mark it as visited.
+3. While the stack is not empty:
+	-Pop a node from the top of the stack.
+	-Mark the popped node as visited and color it.
+		-If the popped node is the destination, exit the loop.
+4. For each of the popped node's unvisited neighbors, mark them as visited and push them onto the stack.
+5. Print the path from the source to the destination.
+
+
+
+
+uniform cost search (ucs) - pila ang cost when travelling per node. shortest path digistruct.
+
+gbfs algo -

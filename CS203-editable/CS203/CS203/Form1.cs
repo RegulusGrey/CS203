@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.IO;
+using System.Reflection.Emit;
 using System.Threading;
 using System.Windows.Forms;
 namespace CS203
@@ -185,7 +188,7 @@ namespace CS203
                 dataGridView1.Rows[i].Cells[count - 1].Value = "0";
             }
         }
-        public void bfsTraversal()
+        /*public void bfsTraversal()
         {
             int source = Convert.ToInt32(txtSource.Text); //root
             int destination = Convert.ToInt32(txtDestination.Text);
@@ -225,6 +228,45 @@ namespace CS203
                 }
             }
 
+        }*/
+
+
+        public void bfsTraversal()
+        {
+            int source = Convert.ToInt32(txtSource.Text); //root
+            int destination = Convert.ToInt32(txtDestination.Text);
+            colornodes(source, Brushes.MediumSlateBlue);
+            colornodes(destination, Brushes.DarkSlateBlue);
+
+            Queue<int> queue = new Queue<int>(); //create queue
+            int[] visited = new int[countnodes]; //create visited nodes
+            visited[source] = 1; //mark root as visited
+            queue.Enqueue(source); //insert root node to the queue
+
+            while (queue.Count > 0) //loop if not empty
+            {
+                int x = queue.Dequeue();
+                Thread.Sleep(500);
+                colornodes(x, Brushes.Navy);
+
+                //loop for your immediate neighbors of x
+                for (int i = 0; i < countnodes; i++)
+                {
+                    Thread.Sleep(150);
+                    if (matrix[x, i] != 0 && visited[i] != 1)
+                        //if matrix is not equal to zero and not visited yet
+                        if (!queue.Contains(i))
+                        {
+                            queue.Enqueue(i); //insert it the queue
+                            visited[i] = 1; // mark i as visited
+                        }
+                }
+                lblpath3.Text += "" + x + "";
+                if (x == destination)
+                {
+                    break;
+                }
+            }
         }
 
 
@@ -290,6 +332,51 @@ namespace CS203
         private void dFSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dfsTraversal();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Initialize a save dialog box with a .txt file extension 
+            SaveFileDialog sd = new SaveFileDialog(); //initialize the save dialog
+            sd.Filter = " Text Document(.txt)|.txt"; //file extension
+
+            // Check if the user selected a file and clicked OK
+            if (sd.ShowDialog() == DialogResult.OK)
+            {
+                // Open a StreamWriter to write to the selected 
+                StreamWriter sw = new StreamWriter(sd.FileName, true);
+                String nodes = "";
+
+
+
+                // Loop through the vertices
+                for (int i = 1; i < countnodes; i++)
+                {
+                    // Append the current vertex and its label to 
+                    nodes = i + "-" + vertices[i];
+                    // Loop through the vertices again
+                    for (int j = 0; j < countnodes; j++)
+                    {
+                        // If there is an edge between the current vertex and the current 
+                        if (matrix[i, j] != 0)
+                        {
+                            // Append the neighbor and its label to 
+                            nodes = nodes + "\t" + j + "-" + vertices[j];
+                        }
+
+                    }
+                    // Write nodes to the file and start a new 
+                    sw.WriteLine(nodes);
+                }
+                // Display a message box to indicate that the file was 
+                MessageBox.Show("FileSave");
+                sw.Close();
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
