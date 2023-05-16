@@ -275,8 +275,8 @@ namespace CS203
         {
             int source = Convert.ToInt32(txtSource.Text); //root
             int destination = Convert.ToInt32(txtDestination.Text);
-            colornodes(source, Brushes.MediumSlateBlue);
-            colornodes(destination, Brushes.DarkSlateBlue);
+            colornodes(source, Brushes.SkyBlue);
+            colornodes(destination, Brushes.SteelBlue);
 
             Stack<int> s = new Stack<int>(); //create stack
             int[] visited = new int[countnodes]; //create visited nodes
@@ -289,7 +289,7 @@ namespace CS203
             {
                 x = Convert.ToInt32(s.Pop().ToString());
                 Thread.Sleep(500);
-                colornodes(x, Brushes.Navy);
+                colornodes(x, Brushes.CornflowerBlue);
 
                 //loop for your immediated neighbors of x
                 for (int i = 0; i < countnodes; i++)
@@ -374,9 +374,100 @@ namespace CS203
             }
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+        /*private void openToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog od = new OpenFileDialog(); //initialize
+            od.Filter = "Text Document(.txt)|.txt"; //file extension
+            od.ValidateNames = true; //validation
+
+            if (od.ShowDialog() == DialogResult.OK)
+            {
+                setClear();
+                txtEdge1.Clear();
+                txtEdge2.Clear();
+                txtSource.Clear();
+                txtDestination.Clear();
+                lblpath3.Text = " ";
+                lblpath3.Text = " ";
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+                Graphics g = picGraph.CreateGraphics();
+                g.Clear(Color.LightPink);
+
+                try
+                {
+                    String line = "";
+                    StreamReader sr = new StreamReader(od.FileName);
+
+                    while (sr.Peek() != -1)
+                    {
+
+                        countnodes++;
+
+                        dataGridView1.Columns.Add("", (countnodes - 1).ToString());
+                        dataGridView1.AutoResizeColumns();
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Rows[countnodes - 1].HeaderCell.Value = (countnodes - 1).ToString();
+                        dataGridView1.AutoResizeRows();
+
+
+                        line = sr.ReadLine();
+                        String[] adjacent = line.Split('\t');
+                        String[] nodes = adjacent[0].Split('-');
+                        int node1 = Convert.ToInt32(nodes[0]);
+                        int x1 = Convert.ToInt32(nodes[1]);
+                        int y1 = Convert.ToInt32(nodes[2]);
+                        vertices[node1] = x1 + "-" + y1;
+
+                        Rectangle rect = new Rectangle(x1, y1, 35, 35);
+                        g.FillEllipse(Brushes.Pink, rect);
+                        g.DrawString(node1.ToString(), new Font("Arial", 12), Brushes.Purple, x1 + 12, y1 + 12);
+
+                        for (int i = 1; i < adjacent.Length; i++)
+                        {
+                            nodes = adjacent[i].Split('-');
+                            int node2 = Convert.ToInt32(nodes[0]);
+                            int x2 = Convert.ToInt32(nodes[1]);
+                            int y2 = Convert.ToInt32(nodes[2]);
+
+                            vertices[node2] = x2 + "-" + y2;
+
+                            rect = new Rectangle(x2, y2, 35, 35);
+                            g.FillEllipse(Brushes.Pink, rect);
+                            g.DrawString(node2.ToString(), new Font("Arial", 12), Brushes.Purple, x2 + 12, y2 + 12);
+                            g.DrawLine(new Pen(Brushes.Purple, 2), (float)(x1 + 12), (float)(y1 + 12), (float)(x2 + 12), (float)(y2 + 12));
+
+
+                            //calculate Distance
+                            double x = (double)(x2 - x1);
+                            double y = (double)(y2 - y1);
+                            double d = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+                            int a = (int)(x1 + x2) / 2;
+                            int queue = ((int)(y1 + y2) / 2) - 5;
+                            g.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 12), Brushes.Purple, a, queue);
+
+                            //adjacenct matrix 
+                            matrix[node1, node2] = Convert.ToInt32(d);
+                            matrix[node2, node1] = Convert.ToInt32(d);
+
+                            EbutangAng1(node1, node2);
+                        }
+                        EbutangAng0(countnodes);
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+
+            }
         }
+
+    }
+    }*/
     }
 }

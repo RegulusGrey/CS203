@@ -1,8 +1,8 @@
 1. Get the source and destination nodes from the txtSource and txtDestination text boxes, respectively.
-2. Create a new queue called b.
+2. Create a new queue called queue.
 3. Create a new array called visited to keep track of visited nodes.
 4. Mark the source node as visited by setting visited[source] = 1.
-5. Enqueue the source node to the queue b.
+5. Enqueue the source node to the queue.
 6. Initialize a variable x to the value of the source node.
 7. Wait for 200 milliseconds.
 8. While the queue b is not empty:
