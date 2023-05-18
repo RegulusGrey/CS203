@@ -15,6 +15,7 @@ namespace CS203
         int countnodes; //counter
         string[] vertices; //nodes
         Graphics graph;
+        ComboBox item;
 
         public Form1()
         {
@@ -120,6 +121,9 @@ namespace CS203
                 dataGridView1.Columns.Add("", (countnodes - 1).ToString());
                 dataGridView1.AutoResizeColumns();
 
+                comboBox1.Items.Add((countnodes - 1).ToString());
+                comboBox2.Items.Add((countnodes - 1).ToString());
+
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[countnodes - 1].HeaderCell.Value = (countnodes - 1).ToString();
                 dataGridView1.AutoResizeRows();
@@ -135,6 +139,18 @@ namespace CS203
             }
 
         }
+
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setClear();
@@ -372,6 +388,16 @@ namespace CS203
                 MessageBox.Show("FileSave");
                 sw.Close();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 
