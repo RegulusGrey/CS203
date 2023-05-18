@@ -8,12 +8,27 @@
 - bfs: all nodes covered in bfs will change colors (e.g.  3 to 6)
 
 
+----
+
 
 lacking:
+
 - menu
+	- Menu must be able to link to 1) BFS, 2) DFS, 3) UCS, and 4) GBFS
+	windows forms each
+
 - open file
 - UCS
-- 
+- BFS
+- DFS
+- GBFS
+
+
+
+----
+
+
+
 
 
 

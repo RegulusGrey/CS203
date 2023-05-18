@@ -30,8 +30,6 @@
         {
             this.btnCreateNodes = new System.Windows.Forms.Button();
             this.btnAdjacentNodes = new System.Windows.Forms.Button();
-            this.txtEdge1 = new System.Windows.Forms.TextBox();
-            this.txtEdge2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -48,17 +46,15 @@
             this.dFSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.lblpath4 = new System.Windows.Forms.Label();
             this.lblpath3 = new System.Windows.Forms.Label();
             this.lblpath1 = new System.Windows.Forms.Label();
             this.lblpath = new System.Windows.Forms.Label();
             this.endbtn = new System.Windows.Forms.Button();
             this.startbtn = new System.Windows.Forms.Button();
-            this.txtDestination = new System.Windows.Forms.TextBox();
-            this.txtSource = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -97,34 +93,12 @@
             this.btnAdjacentNodes.UseVisualStyleBackColor = false;
             this.btnAdjacentNodes.Click += new System.EventHandler(this.btnAdjacentNodes_Click);
             // 
-            // txtEdge1
-            // 
-            this.txtEdge1.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEdge1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEdge1.Location = new System.Drawing.Point(22, 53);
-            this.txtEdge1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEdge1.Name = "txtEdge1";
-            this.txtEdge1.Size = new System.Drawing.Size(85, 24);
-            this.txtEdge1.TabIndex = 2;
-            // 
-            // txtEdge2
-            // 
-            this.txtEdge2.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEdge2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEdge2.Location = new System.Drawing.Point(303, 53);
-            this.txtEdge2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEdge2.Name = "txtEdge2";
-            this.txtEdge2.Size = new System.Drawing.Size(85, 24);
-            this.txtEdge2.TabIndex = 3;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtEdge1);
-            this.groupBox1.Controls.Add(this.txtEdge2);
             this.groupBox1.Controls.Add(this.btnAdjacentNodes);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -140,7 +114,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(211, 53);
+            this.comboBox2.Location = new System.Drawing.Point(303, 52);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(85, 27);
             this.comboBox2.TabIndex = 7;
@@ -149,7 +123,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 52);
+            this.comboBox1.Location = new System.Drawing.Point(22, 52);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(85, 27);
             this.comboBox1.TabIndex = 6;
@@ -277,8 +251,6 @@
             this.groupBox2.Controls.Add(this.lblpath);
             this.groupBox2.Controls.Add(this.endbtn);
             this.groupBox2.Controls.Add(this.startbtn);
-            this.groupBox2.Controls.Add(this.txtDestination);
-            this.groupBox2.Controls.Add(this.txtSource);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox2.Location = new System.Drawing.Point(18, 595);
@@ -289,6 +261,22 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Traversal";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(334, 57);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(55, 27);
+            this.comboBox3.TabIndex = 20;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(133, 57);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(55, 27);
+            this.comboBox4.TabIndex = 19;
             // 
             // lblpath4
             // 
@@ -364,27 +352,6 @@
             this.startbtn.Text = "Start";
             this.startbtn.UseVisualStyleBackColor = false;
             // 
-            // txtDestination
-            // 
-            this.txtDestination.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDestination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDestination.Location = new System.Drawing.Point(334, 25);
-            this.txtDestination.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDestination.Name = "txtDestination";
-            this.txtDestination.Size = new System.Drawing.Size(54, 24);
-            this.txtDestination.TabIndex = 12;
-            // 
-            // txtSource
-            // 
-            this.txtSource.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSource.Location = new System.Drawing.Point(133, 25);
-            this.txtSource.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSource.Multiline = true;
-            this.txtSource.Name = "txtSource";
-            this.txtSource.Size = new System.Drawing.Size(54, 25);
-            this.txtSource.TabIndex = 11;
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.PaleVioletRed;
@@ -398,22 +365,6 @@
             this.groupBox3.Size = new System.Drawing.Size(453, 791);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(334, 57);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(55, 27);
-            this.comboBox3.TabIndex = 20;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(133, 57);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(55, 27);
-            this.comboBox4.TabIndex = 19;
             // 
             // Form1
             // 
@@ -446,8 +397,6 @@
 
         private System.Windows.Forms.Button btnCreateNodes;
         private System.Windows.Forms.Button btnAdjacentNodes;
-        private System.Windows.Forms.TextBox txtEdge1;
-        private System.Windows.Forms.TextBox txtEdge2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox picGraph;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -456,8 +405,6 @@
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtDestination;
-        private System.Windows.Forms.TextBox txtSource;
         private System.Windows.Forms.Button endbtn;
         private System.Windows.Forms.Button startbtn;
         private System.Windows.Forms.Label lblpath;
