@@ -33,6 +33,8 @@
             this.txtEdge1 = new System.Windows.Forms.TextBox();
             this.txtEdge2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.picGraph = new System.Windows.Forms.PictureBox();
@@ -55,8 +57,8 @@
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.txtSource = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGraph)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -134,6 +136,24 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Graph Details";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(211, 53);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(85, 27);
+            this.comboBox2.TabIndex = 7;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(114, 52);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(85, 27);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -249,6 +269,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.lblpath4);
             this.groupBox2.Controls.Add(this.lblpath3);
             this.groupBox2.Controls.Add(this.lblpath1);
@@ -346,7 +368,7 @@
             // 
             this.txtDestination.BackColor = System.Drawing.SystemColors.Control;
             this.txtDestination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDestination.Location = new System.Drawing.Point(334, 55);
+            this.txtDestination.Location = new System.Drawing.Point(334, 25);
             this.txtDestination.Margin = new System.Windows.Forms.Padding(4);
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(54, 24);
@@ -356,7 +378,7 @@
             // 
             this.txtSource.BackColor = System.Drawing.SystemColors.Control;
             this.txtSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSource.Location = new System.Drawing.Point(134, 55);
+            this.txtSource.Location = new System.Drawing.Point(133, 25);
             this.txtSource.Margin = new System.Windows.Forms.Padding(4);
             this.txtSource.Multiline = true;
             this.txtSource.Name = "txtSource";
@@ -377,23 +399,21 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
-            // comboBox1
+            // comboBox3
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(85, 27);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(334, 57);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(55, 27);
+            this.comboBox3.TabIndex = 20;
             // 
-            // comboBox2
+            // comboBox4
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(211, 53);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(85, 27);
-            this.comboBox2.TabIndex = 7;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(133, 57);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(55, 27);
+            this.comboBox4.TabIndex = 19;
             // 
             // Form1
             // 
@@ -453,6 +473,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }
 

@@ -6,6 +6,8 @@ using System.IO;
 using System.Reflection.Emit;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace CS203
 {
     public partial class Form1 : Form
@@ -15,7 +17,7 @@ namespace CS203
         int countnodes; //counter
         string[] vertices; //nodes
         Graphics graph;
-        ComboBox item;
+        //ComboBox item;
 
         public Form1()
         {
@@ -39,10 +41,10 @@ namespace CS203
             countnodes = 0;
             lblpath3.Text = "";
             lblpath4.Text = "";
-            txtEdge1.Text = "";
-            txtEdge2.Text = "";
-            txtSource.Text = "";
-            txtDestination.Text = "";
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
 
         }
 
@@ -61,8 +63,8 @@ namespace CS203
             if (stopcreate == true)
             {
                 //set or define the adjacent of two nodes
-                int edge1 = Convert.ToInt32(txtEdge1.Text);
-                int edge2 = Convert.ToInt32(txtEdge2.Text);
+                int edge1 = Convert.ToInt32(comboBox1.Text);
+                int edge2 = Convert.ToInt32(comboBox2.Text);
 
                 //split the coordinates of x, and y of the edges
                 string[] c1 = vertices[edge1].Split('-');
@@ -91,7 +93,7 @@ namespace CS203
                 matrix[edge2, edge1] = Convert.ToInt32(d);
 
                 //if it is adjacent, display 1 otherwise 0
-                setAdjacentMatrix(int.Parse(txtEdge1.Text), int.Parse(txtEdge2.Text));
+                setAdjacentMatrix(int.Parse(comboBox1.Text), int.Parse(comboBox2.Text));
 
 
             }
@@ -123,6 +125,8 @@ namespace CS203
 
                 comboBox1.Items.Add((countnodes - 1).ToString());
                 comboBox2.Items.Add((countnodes - 1).ToString());
+                comboBox3.Items.Add((countnodes - 1).ToString());
+                comboBox4.Items.Add((countnodes - 1).ToString());
 
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[countnodes - 1].HeaderCell.Value = (countnodes - 1).ToString();
@@ -156,7 +160,7 @@ namespace CS203
             setClear();
             picGraph.Image = null;
             // Clear dataGridView1
-            dataGridView1.Rows.Clear();
+            dataGridView1.Rows.Clear();                                                                                                      
             dataGridView1.Columns.Clear();
             //Application.Restart();
         }
@@ -249,8 +253,8 @@ namespace CS203
 
         public void bfsTraversal()
         {
-            int source = Convert.ToInt32(txtSource.Text); //root
-            int destination = Convert.ToInt32(txtDestination.Text);
+            int source = Convert.ToInt32(comboBox3.Text); //root
+            int destination = Convert.ToInt32(comboBox4.Text);
             colornodes(source, Brushes.MediumSlateBlue);
             colornodes(destination, Brushes.DarkSlateBlue);
 
@@ -289,8 +293,8 @@ namespace CS203
 
         public void dfsTraversal()
         {
-            int source = Convert.ToInt32(txtSource.Text); //root
-            int destination = Convert.ToInt32(txtDestination.Text);
+            int source = Convert.ToInt32(comboBox3.Text); //root
+            int destination = Convert.ToInt32(comboBox4.Text);
             colornodes(source, Brushes.SkyBlue);
             colornodes(destination, Brushes.SteelBlue);
 
