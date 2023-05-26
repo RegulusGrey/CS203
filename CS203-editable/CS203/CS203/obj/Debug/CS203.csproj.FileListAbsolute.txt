@@ -77,3 +77,4 @@ C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203
 C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.Menu.resources
 C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.BFS_Form.resources
 C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.DFS_Form.resources
+C:\Users\Ethan\Documents\GitHub\CS203\CS203-editable\CS203\CS203\obj\Debug\CS203.UCS_Form.resources

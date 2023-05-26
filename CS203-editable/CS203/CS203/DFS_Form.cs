@@ -21,7 +21,6 @@ namespace CS203
         public DFS_Form()
         {
             InitializeComponent();
-            InitializeComponent();
             setClear();
             btnCreateNodes.TabStop = false;
             btnCreateNodes.FlatStyle = FlatStyle.Flat;
@@ -47,7 +46,6 @@ namespace CS203
         {
             stopcreate = false;
         }
-
 
         private bool isDrawingLine = false;
         private int edge1 = -1; // initialize to an invalid index
@@ -94,6 +92,8 @@ namespace CS203
 
             }
         }
+
+
 
         private void picGraph_MouseClick(object sender, MouseEventArgs e)
         {
@@ -146,12 +146,26 @@ namespace CS203
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
             //Application.Restart();
+            lblpath4.Text = "";
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
         }
-        public void setAdjacentMatrix(int r, int c)
+        public void setAdjacentMatrix(int edge1, int edge2)
         {
             //Overwrite the specific cell that are adjacent
-            dataGridView1.Rows[r].Cells[c].Value = "1";
-            dataGridView1.Rows[c].Cells[r].Value = "1";
+            for (int row = 0; row < countnodes; row++)
+            {
+                for (int col = 0; col < countnodes; col++)
+                {
+                    if (row == edge1 && edge2 == col)
+                    {
+                        dataGridView1.Rows[edge1].Cells[edge2].Value = 1;
+                        dataGridView1.Rows[edge2].Cells[edge1].Value = 1;
+                    }
+                }
+            }
 
         }
 
@@ -166,12 +180,34 @@ namespace CS203
             graph.DrawString(node.ToString(), new Font("Arial", 12), Brushes.White, new PointF(x + 8, y + 8));
         }
 
-        public void setAdjacentMatrixToZero(int count)
+
+        /*public void colornodes(int node, Brush e)
         {
-            for (int i = 0; i < count; i++)
+            String[] s = vertices[node].Split('-');
+            int x, y;
+            if (s.Length < 2 || !int.TryParse(s[0], out x) || !int.TryParse(s[1], out y))
             {
-                dataGridView1.Rows[count - 1].Cells[i].Value = "0";
-                dataGridView1.Rows[i].Cells[count - 1].Value = "0";
+                // handle error case here, e.g. throw an exception or return early
+                return;
+            }
+
+            Rectangle react = new Rectangle(x, y, 35, 35);
+            graph.FillEllipse(e, react);
+            graph.DrawString(node.ToString(), new Font("Arial", 12), Brushes.White, new PointF(x + 8, y + 8));
+        }*/
+
+
+        public void setAdjacentMatrixToZero(int countNode)
+        {
+            for (int i = 0; i < countNode; i++)
+            {
+                for (int j = 0; j < countNode; j++)
+                {
+                    if (dataGridView1.Rows[i].Cells[j].Value == null)
+                    {
+                        dataGridView1.Rows[i].Cells[j].Value = 0;
+                    }
+                }
             }
         }
 
@@ -224,14 +260,14 @@ namespace CS203
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightPink;
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
-
         private void dFSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dfsTraversal();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -250,7 +286,7 @@ namespace CS203
 
 
                 // Loop through the vertices
-                for (int i = 1; i < countnodes; i++)
+                for (int i = 0; i < countnodes; i++)
                 {
                     // Append the current vertex and its label to 
                     nodes = i + "-" + vertices[i];
@@ -274,10 +310,12 @@ namespace CS203
             }
         }
 
+
+
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog od = new OpenFileDialog(); //initialize
-            od.Filter = "Text Document(.txt)|.txt"; //file extension
+            od.Filter = "Text Document(*.txt)|*.txt"; //file extension
             od.ValidateNames = true; //validation
 
             if (od.ShowDialog() == DialogResult.OK)
@@ -287,7 +325,7 @@ namespace CS203
                 comboBox2.Items.Clear();
                 comboBox4.Items.Clear();
                 comboBox3.Items.Clear();
-                lblpath4.Text = " ";
+                lblpath4.Text = "The traversal Path is: ";
                 dataGridView1.Rows.Clear();
                 dataGridView1.Columns.Clear();
                 Graphics g = picGraph.CreateGraphics();
@@ -301,14 +339,11 @@ namespace CS203
                     while (sr.Peek() != -1)
                     {
 
-                        string item = sr.ReadLine();
-                        comboBox1.Items.Add(item);
-                        item = sr.ReadLine();
-                        comboBox2.Items.Add(item);
-                        item = sr.ReadLine();
-                        comboBox4.Items.Add(item);
-                        item = sr.ReadLine();
-                        comboBox3.Items.Add(item);
+
+                        comboBox1.Items.Add(countnodes);
+                        comboBox2.Items.Add(countnodes);
+                        comboBox4.Items.Add(countnodes);
+                        comboBox3.Items.Add(countnodes);
 
 
                         countnodes++;
@@ -373,6 +408,7 @@ namespace CS203
 
 
             }
+
         }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -386,5 +422,6 @@ namespace CS203
             // Show Form1
             form1.Show();
         }
+
     }
 }

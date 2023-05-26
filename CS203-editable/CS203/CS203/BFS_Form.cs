@@ -211,47 +211,6 @@ namespace CS203
                 }
             }
         }
-        /*public void bfsTraversal()
-        {
-            int source = Convert.ToInt32(txtSource.Text); //root
-            int destination = Convert.ToInt32(txtDestination.Text);
-            colornodes(source, Brushes.MediumSlateBlue);
-            colornodes(destination, Brushes.DarkSlateBlue);
-
-            Queue<int> b = new Queue<int>(); //create queue
-            int[] visited = new int[countnodes]; //create visited nodes
-            visited[source] = 1; //mark root as visited
-            b.Enqueue(source); //insert root node to the queue
-            int x = source;
-            Thread.Sleep(200);
-
-            while (b.Count > 0) //loop if not empty
-            {
-                x = Convert.ToInt32(b.Dequeue().ToString());
-                Thread.Sleep(500);
-                colornodes(x, Brushes.Navy);
-
-                //loop for your immediated neighbors of x
-                for (int i = 0; i < countnodes; i++)
-                {
-                    Thread.Sleep(150);
-                    if (matrix[x, i] != 0 && visited[i] != 1)
-                        //if matrix is not equal to zero and not visited yet
-                        if (!b.Contains(i))
-                        {
-                            b.Enqueue(i); //insert it the queue
-                            visited[x] = 1; // mark x as visited
-
-                        }
-                }
-                lblpath3.Text += "" + x + "";
-                if (x == destination)
-                {
-                    break;
-                }
-            }
-
-        }*/
 
 
         public void bfsTraversal()
