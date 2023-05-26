@@ -186,35 +186,35 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.closeToolStripMenuItem.Text = "Restart";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.openFileToolStripMenuItem.Text = "Open File";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
             // mainMenuToolStripMenuItem
             // 
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
-            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
             this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
@@ -288,9 +288,9 @@
             this.lblpath3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblpath3.Location = new System.Drawing.Point(43, 198);
             this.lblpath3.Name = "lblpath3";
-            this.lblpath3.Size = new System.Drawing.Size(145, 17);
+            this.lblpath3.Size = new System.Drawing.Size(147, 17);
             this.lblpath3.TabIndex = 17;
-            this.lblpath3.Text = "The traversal Path is:";
+            this.lblpath3.Text = "The Traversal Path is:";
             // 
             // lblpath
             // 
@@ -300,9 +300,9 @@
             this.lblpath.Location = new System.Drawing.Point(18, 163);
             this.lblpath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblpath.Name = "lblpath";
-            this.lblpath.Size = new System.Drawing.Size(156, 23);
+            this.lblpath.Size = new System.Drawing.Size(132, 23);
             this.lblpath.TabIndex = 15;
-            this.lblpath.Text = "BFS Traversal:   ";
+            this.lblpath.Text = "BFS Traversal";
             // 
             // endbtn
             // 
