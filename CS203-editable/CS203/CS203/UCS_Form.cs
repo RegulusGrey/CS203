@@ -28,6 +28,13 @@ namespace CS203
         public UCS_Form()
         {
             InitializeComponent();
+            setClear();
+            btnCreateNodes.TabStop = false;
+            btnCreateNodes.FlatStyle = FlatStyle.Flat;
+            btnCreateNodes.FlatAppearance.BorderSize = 0;
+            btnAdjacentNodes.TabStop = false;
+            btnAdjacentNodes.FlatStyle = FlatStyle.Flat;
+            btnAdjacentNodes.FlatAppearance.BorderSize = 0;
         }
 
         public void setClear()
@@ -361,7 +368,6 @@ namespace CS203
             form1.Show();
         }
 
-
         public void ucsTraversal()
         {
             int source = Convert.ToInt32(comboBox4.Text); // root
@@ -372,7 +378,7 @@ namespace CS203
             PriorityQueue<Node> priorityQueue = new PriorityQueue<Node>(); // create priority queue
             int[] visited = new int[countnodes]; // create visited nodes
             visited[source] = 1; // mark root as visited
-            priorityQueue.Enqueue(new Node(source, 0)); // insert root node to the priority queue
+            priorityQueue.Enqueue(new Node(source, 0, source.ToString())); // insert root node to the priority queue
 
             while (priorityQueue.Count > 0) // loop if not empty
             {
@@ -384,7 +390,7 @@ namespace CS203
                 if (x == destination)
                 {
                     // Destination found
-                    lblpath4.Text += "" + x + "";
+                    lblpath4.Text = currentNode.Path;
                     break;
                 }
 
@@ -392,40 +398,44 @@ namespace CS203
                 for (int i = 0; i < countnodes; i++)
                 {
                     Thread.Sleep(150);
-                    if (matrix[x, i] != 0 && visited[i] != 1)
+                    if (visited[i] != 1 && matrix[x, i] != 0)
                     {
                         // If matrix is not equal to zero and not visited yet
                         visited[i] = 1; // mark i as visited
 
                         int newCost = currentNode.Cost + matrix[x, i]; // calculate new cost
-                        priorityQueue.Enqueue(new Node(i, newCost)); // insert it into the priority queue
+                        string newPath = currentNode.Path + " " + i.ToString();
+                        priorityQueue.Enqueue(new Node(i, newCost, newPath)); // insert it into the priority queue
                     }
                 }
-                lblpath4.Text += "" + x + "";
             }
         }
     }
-
-    // Node class to store node index and cost
-    class Node : IComparable<Node>
-    {
-        public int NodeIndex { get; }
-        public int Cost { get; }
-
-        public Node(int nodeIndex, int cost)
+        // Node class to store node index, cost, and path
+        class Node : IComparable<Node>
         {
-            NodeIndex = nodeIndex;
-            Cost = cost;
+            public int NodeIndex { get; }
+            public int Cost { get; }
+            public string Path { get; }
+
+            public Node(int nodeIndex, int cost, string path)
+            {
+                NodeIndex = nodeIndex;
+                Cost = cost;
+                Path = path;
+            }
+
+            public int CompareTo(Node other)
+            {
+                // Compare nodes based on their costs
+                return Cost.CompareTo(other.Cost);
+            }
         }
 
-        public int CompareTo(Node other)
-        {
-            // Compare nodes based on their costs
-            return Cost.CompareTo(other.Cost);
-        }
-    }
+        // Rest of the code remains the same
+    
 
-    public class PriorityQueue<T> where T : IComparable<T>
+        public class PriorityQueue<T> where T : IComparable<T>
     {
         private List<T> heap;
 

@@ -181,23 +181,6 @@ namespace CS203
             graph.DrawString(node.ToString(), new Font("Arial", 12), Brushes.White, new PointF(x + 8, y + 8));
         }
 
-
-        /*public void colornodes(int node, Brush e)
-        {
-            String[] s = vertices[node].Split('-');
-            int x, y;
-            if (s.Length < 2 || !int.TryParse(s[0], out x) || !int.TryParse(s[1], out y))
-            {
-                // handle error case here, e.g. throw an exception or return early
-                return;
-            }
-
-            Rectangle react = new Rectangle(x, y, 35, 35);
-            graph.FillEllipse(e, react);
-            graph.DrawString(node.ToString(), new Font("Arial", 12), Brushes.White, new PointF(x + 8, y + 8));
-        }*/
-
-
         public void setAdjacentMatrixToZero(int countNode)
         {
             for (int i = 0; i < countNode; i++)
@@ -213,7 +196,7 @@ namespace CS203
         }
 
 
-        public void bfsTraversal()
+        /*public void bfsTraversal()
         {
             int source = Convert.ToInt32(comboBox4.Text); //root
             int destination = Convert.ToInt32(comboBox3.Text);
@@ -252,7 +235,46 @@ namespace CS203
                     break;
                 }
             }
+        }*/
+
+
+        public void bfsTraversal()
+        {
+            int source = Convert.ToInt32(comboBox4.Text); // root
+            int destination = Convert.ToInt32(comboBox3.Text);
+            colornodes(source, Brushes.MediumSlateBlue);
+            colornodes(destination, Brushes.DarkSlateBlue);
+
+            Queue<int> queue = new Queue<int>(); // create queue
+            int[] visited = new int[countnodes]; // create visited nodes
+            visited[source] = 1; // mark root as visited
+            queue.Enqueue(source); // insert root node to the queue
+
+            while (queue.Count > 0) // loop if not empty
+            {
+                int x = queue.Dequeue();
+                Thread.Sleep(500);
+                colornodes(x, Brushes.Navy);
+
+                // loop for your immediate neighbors of x
+                for (int i = 0; i < countnodes; i++)
+                {
+                    Thread.Sleep(150);
+                    if (matrix[x, i] != 0 && visited[i] != 1)
+                    {
+                        queue.Enqueue(i); // insert it into the queue
+                        visited[i] = 1; // mark i as visited
+                    }
+                }
+
+                lblpath3.Text += " " + x + " ";
+                if (x == destination)
+                {
+                    break;
+                }
+            }
         }
+
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {   

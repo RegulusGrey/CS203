@@ -180,24 +180,7 @@ namespace CS203
             graph.DrawString(node.ToString(), new Font("Arial", 12), Brushes.White, new PointF(x + 8, y + 8));
         }
 
-
-        /*public void colornodes(int node, Brush e)
-        {
-            String[] s = vertices[node].Split('-');
-            int x, y;
-            if (s.Length < 2 || !int.TryParse(s[0], out x) || !int.TryParse(s[1], out y))
-            {
-                // handle error case here, e.g. throw an exception or return early
-                return;
-            }
-
-            Rectangle react = new Rectangle(x, y, 35, 35);
-            graph.FillEllipse(e, react);
-            graph.DrawString(node.ToString(), new Font("Arial", 12), Brushes.White, new PointF(x + 8, y + 8));
-        }*/
-
-
-        public void setAdjacentMatrixToZero(int countNode)
+         public void setAdjacentMatrixToZero(int countNode)
         {
             for (int i = 0; i < countNode; i++)
             {
@@ -245,7 +228,7 @@ namespace CS203
 
                         }
                 }
-                lblpath4.Text += "" + x + "";
+                lblpath4.Text += " " + x + " ";
                 if (x == destination)
                 {
                     break;
