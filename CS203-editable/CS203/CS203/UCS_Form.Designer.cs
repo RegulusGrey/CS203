@@ -71,6 +71,7 @@
             this.picGraph.Size = new System.Drawing.Size(828, 783);
             this.picGraph.TabIndex = 15;
             this.picGraph.TabStop = false;
+            this.picGraph.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picGraph_MouseClick);
             // 
             // comboBox3
             // 
@@ -206,6 +207,7 @@
             this.btnAdjacentNodes.TabIndex = 1;
             this.btnAdjacentNodes.Text = "Adjacent Nodes";
             this.btnAdjacentNodes.UseVisualStyleBackColor = false;
+            this.btnAdjacentNodes.Click += new System.EventHandler(this.btnAdjacentNodes_Click);
             // 
             // groupBox2
             // 
@@ -266,6 +268,7 @@
             this.btnCreateNodes.TabIndex = 0;
             this.btnCreateNodes.Text = "Create Nodes";
             this.btnCreateNodes.UseVisualStyleBackColor = false;
+            this.btnCreateNodes.Click += new System.EventHandler(this.btnCreateNodes_Click);
             // 
             // uCSToolStripMenuItem
             // 
@@ -287,30 +290,35 @@
             this.mainMenuToolStripMenuItem.Name = "mainMenuToolStripMenuItem";
             this.mainMenuToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.mainMenuToolStripMenuItem.Text = "Main Menu";
+            this.mainMenuToolStripMenuItem.Click += new System.EventHandler(this.mainMenuToolStripMenuItem_Click);
             // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
             this.openFileToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.openFileToolStripMenuItem.Text = "Open File";
+            this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
             this.clearToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.closeToolStripMenuItem.Text = "Restart";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // fileToolStripMenuItem
             // 
