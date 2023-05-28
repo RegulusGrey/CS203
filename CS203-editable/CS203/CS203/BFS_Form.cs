@@ -225,7 +225,7 @@ namespace CS203
             visited[source] = 1; //mark root as visited
             queue.Enqueue(source); //insert root node to the queue
 
-            while (queue.Count > 0) //loop if not empty
+            while (queue.Count > 0) //loop if not empty. accepts bec we have enqueued something into our queue which is the source (0)
             {
                 int x = queue.Dequeue();
                 Thread.Sleep(500);
