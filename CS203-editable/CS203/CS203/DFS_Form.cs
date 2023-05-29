@@ -347,8 +347,8 @@ namespace CS203
                         vertices[node1] = x1 + "-" + y1;
 
                         Rectangle rect = new Rectangle(x1, y1, 35, 35);
-                        g.FillEllipse(Brushes.Pink, rect);
-                        g.DrawString(node1.ToString(), new Font("Arial", 12), Brushes.Purple, x1 + 12, y1 + 12);
+                        g.FillEllipse(Brushes.PaleVioletRed, rect);
+                        g.DrawString(node1.ToString(), new Font("Arial", 12), Brushes.White, x1 + 12, y1 + 12);
 
                         for (int i = 1; i < adjacent.Length; i++)
                         {
@@ -360,9 +360,9 @@ namespace CS203
                             vertices[node2] = x2 + "-" + y2;
 
                             rect = new Rectangle(x2, y2, 35, 35);
-                            g.FillEllipse(Brushes.Pink, rect);
-                            g.DrawString(node2.ToString(), new Font("Arial", 12), Brushes.Purple, x2 + 12, y2 + 12);
-                            g.DrawLine(new Pen(Brushes.Purple, 2), (float)(x1 + 12), (float)(y1 + 12), (float)(x2 + 12), (float)(y2 + 12));
+                            g.FillEllipse(Brushes.PaleVioletRed, rect);
+                            g.DrawString(node2.ToString(), new Font("Arial", 12), Brushes.White, x2 + 12, y2 + 12);
+                            g.DrawLine(new Pen(Brushes.PowderBlue, 2), (float)(x1 + 12), (float)(y1 + 12), (float)(x2 + 12), (float)(y2 + 12));
 
 
                             //calculate Distance
@@ -371,7 +371,7 @@ namespace CS203
                             double d = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
                             int a = (int)(x1 + x2) / 2;
                             int queue = ((int)(y1 + y2) / 2) - 5;
-                            g.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 12), Brushes.Purple, a, queue);
+                            g.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 12), Brushes.White, a, queue);
 
                             //adjacenct matrix 
                             matrix[node1, node2] = Convert.ToInt32(d);

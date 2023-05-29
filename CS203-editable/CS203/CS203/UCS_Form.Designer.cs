@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdjacentNodes = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCreateNodes = new System.Windows.Forms.Button();
@@ -212,6 +213,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.lblpath4);
@@ -228,6 +230,17 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Traversal";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(37, 238);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 17);
+            this.label3.TabIndex = 21;
+            
             // 
             // dataGridView1
             // 
@@ -399,5 +412,6 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label label3;
     }
 }

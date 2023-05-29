@@ -45,6 +45,7 @@ namespace CS203
             matrix = new int[50, 50];
             vertices = new string[50];
             countnodes = 0;
+           
 
 
         }
@@ -309,8 +310,8 @@ namespace CS203
                         vertices[node1] = x1 + "-" + y1;
 
                         Rectangle rect = new Rectangle(x1, y1, 35, 35);
-                        g.FillEllipse(Brushes.Pink, rect);
-                        g.DrawString(node1.ToString(), new Font("Arial", 12), Brushes.Purple, x1 + 12, y1 + 12);
+                        g.FillEllipse(Brushes.PaleVioletRed, rect);
+                        g.DrawString(node1.ToString(), new Font("Arial", 12), Brushes.White, x1 + 12, y1 + 12);
 
                         for (int i = 1; i < adjacent.Length; i++)
                         {
@@ -322,9 +323,9 @@ namespace CS203
                             vertices[node2] = x2 + "-" + y2;
 
                             rect = new Rectangle(x2, y2, 35, 35);
-                            g.FillEllipse(Brushes.Pink, rect);
-                            g.DrawString(node2.ToString(), new Font("Arial", 12), Brushes.Purple, x2 + 12, y2 + 12);
-                            g.DrawLine(new Pen(Brushes.Purple, 2), (float)(x1 + 12), (float)(y1 + 12), (float)(x2 + 12), (float)(y2 + 12));
+                            g.FillEllipse(Brushes.PaleVioletRed, rect);
+                            g.DrawString(node2.ToString(), new Font("Arial", 12), Brushes.White, x2 + 12, y2 + 12);
+                            g.DrawLine(new Pen(Brushes.PowderBlue, 2), (float)(x1 + 12), (float)(y1 + 12), (float)(x2 + 12), (float)(y2 + 12));
 
 
                             //calculate Distance
@@ -333,7 +334,7 @@ namespace CS203
                             double d = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
                             int a = (int)(x1 + x2) / 2;
                             int queue = ((int)(y1 + y2) / 2) - 5;
-                            g.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 12), Brushes.Purple, a, queue);
+                            g.DrawString(Math.Round(d, 2).ToString(), new Font("Arial", 12), Brushes.White, a, queue);
 
                             //adjacenct matrix 
                             matrix[node1, node2] = Convert.ToInt32(d);
@@ -368,7 +369,7 @@ namespace CS203
             form1.Show();
         }
 
-        public void ucsTraversal()
+        /*public void ucsTraversal()
         {
             int source = Convert.ToInt32(comboBox4.Text); // root
             int destination = Convert.ToInt32(comboBox3.Text);
@@ -407,12 +408,100 @@ namespace CS203
                         string newPath = currentNode.Path + " " + i.ToString();
                         priorityQueue.Enqueue(new Node(i, newCost, newPath)); // insert it into the priority queue
                     }
-                }
+                }              
             }
+        }*/
+
+        /*public void ucsTraversal()
+        {
+            int source = Convert.ToInt32(comboBox4.Text); // root
+            int destination = Convert.ToInt32(comboBox3.Text);
+            colornodes(source, Brushes.MediumSlateBlue);
+            colornodes(destination, Brushes.DarkSlateBlue);
+
+            PriorityQueue<Node> priorityQueue = new PriorityQueue<Node>(); // create priority queue
+            int[] visited = new int[countnodes]; // create visited nodes
+            visited[source] = 1; // mark root as visited
+            priorityQueue.Enqueue(new Node(source, 0, source.ToString())); // insert root node to the priority queue
+            var path = new List<int>();
+
+
+            int totalCost = 0; // variable to store the total cost
+
+            while (priorityQueue.Count > 0) // loop if not empty
+            {
+                Node currentNode = priorityQueue.Dequeue();
+                int x = currentNode.NodeIndex;
+                Thread.Sleep(500);
+                colornodes(x, Brushes.Navy);
+                
+                //path.Add(x);
+
+                if (x == destination)
+                {
+                    // Destination found
+                    lblpath4.Text = currentNode.Path;
+                    totalCost = currentNode.Cost; // update the total cost 
+                    break;
+                }
+
+                // loop for your immediate neighbors of x
+                for (int i = 0; i < countnodes; i++)
+                {
+                    Thread.Sleep(150);
+                    if (visited[i] != 1 && matrix[x, i] != 0)
+                    {
+                        // If matrix is not equal to zero and not visited yet
+                        visited[i] = 1; // mark i as visited
+
+                        int newCost = currentNode.Cost + matrix[x, i]; // calculate new cost
+                        string newPath = currentNode.Path + " " + i.ToString();
+                        path.Add(x);
+
+                        priorityQueue.Enqueue(new Node(i, newCost, newPath)); // insert it into the priority queue
+
+                        totalCost = newCost; // update the total cost
+                    }
+                   
+                }
+                
+            }
+
+            path.Reverse(); 
+            for (int i =0; i < path.Count; i++) 
+            {
+                lblpath4.Text += path[i].ToString();
+            }
+
+            *//*string newPath = currentNode.Path;
+                        char[] pathset = newPath.ToCharArray();
+                        Array.Reverse(pathset);
+
+                        int left = 0;
+                        int right = pathset.Length - 1;
+                        while (left < right)
+                        {
+                            char temp = pathset[left];
+                            pathset[left] = pathset[right];
+                            pathset[right] = temp;
+                            left++;
+                            right--;
+                        }
+
+                        string reversedString = new string(pathset);
+                        Console.WriteLine(reversedString);*//*
+
+            // Display the total cost
+            label3.Text = "Total Cost: " + totalCost.ToString();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
-        // Node class to store node index, cost, and path
-        class Node : IComparable<Node>
+    // Node class to store node index, cost, and path
+    class Node : IComparable<Node>
         {
             public int NodeIndex { get; }
             public int Cost { get; }
@@ -505,5 +594,102 @@ namespace CS203
             heap[index2] = temp;
         }
     }
+*/
+        public void ucsTraversal()
+        {
 
+            try
+            {
+                PriorityQueue pq = new PriorityQueue();
+                Stack<Tuple<int, int>> visited = new Stack<Tuple<int, int>>();
+                Dictionary<int, int> prevNode = new Dictionary<int, int>(); // previous adjacent nodes
+                Dictionary<int, int> distance = new Dictionary<int, int>(); // distance of shortest path to each node
+                List<int> path = new List<int>(); // path list
+
+                int s = Convert.ToInt32(comboBox4.Text);
+                int d = Convert.ToInt32(comboBox3.Text);
+
+                pq.Enqueue(new Tuple<int, int>(s, 0));  // enqueue the start node to the priorityqueue
+                prevNode[s] = s; // set the start node previous node to itself
+                distance[s] = 0; // set the start node distance to zero
+
+                colornodes(s, Brushes.DarkOrange);
+                colornodes(d, Brushes.Red);
+
+                Thread.Sleep(150);
+
+                while (pq.Count != 0)
+                {
+                    visited.Push(pq.Peek());
+                    Tuple<int, int> current = pq.Dequeue();
+
+                    for (int i = 0; i < countnodes; i++) // Traverse all adjacent vertices
+                    {
+                        if (matrix[current.Item1, i] != 0)
+                        {
+                            if (!visited.Contains(new Tuple<int, int>(i, default)))
+                            {
+                                int tempDistance = current.Item2 + matrix[current.Item1, i];
+                                if (!distance.ContainsKey(i) || tempDistance < distance[i])
+                                {
+                                    pq.Enqueue(new Tuple<int, int>(i, tempDistance));
+                                    prevNode[i] = current.Item1;
+                                    distance[i] = tempDistance;
+                                }
+                            }
+                        }
+                    }
+
+                    if (current.Item1 == d)
+                    {
+                        break;
+                    }
+                }
+
+
+                int curr = d;
+                while (true)
+                {
+                    if (curr != s)
+                    {
+                        path.Add(curr);
+                        curr = prevNode[curr];
+                    }
+                    else
+                    {
+                        path.Add(s);
+                        //path.Reverse();
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < path.Count; i++)
+                {
+                    Thread.Sleep(300);
+                    colornodes(path[i], Brushes.DarkGreen);
+                }
+
+                for (int i = 0; i < path.Count; i++)
+                {
+                    lblpath4.Text += " " + path[i] + " ";
+                }
+
+                label3.Text = "Total Cost: " + distance[d].ToString();
+
+                if (!prevNode.ContainsKey(d))
+                {
+                    MessageBox.Show("No path found!", "Traversal Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                MessageBox.Show("Traversal Finished!", "Traversal", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ENTER VALID TRAVERSAL INPUTS!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+    }
 }
